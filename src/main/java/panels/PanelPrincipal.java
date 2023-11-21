@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 public class PanelPrincipal extends JPanel {
     private PanelCategoria categorias;
     private Panelinicio inicio;
+    private  PanelAsientosClasic AsientoClasic;
     public PanelPrincipal(){
         super();
         this.setBackground(Color.WHITE);
@@ -13,9 +14,12 @@ public class PanelPrincipal extends JPanel {
         this.setBounds(0,0,1920,1080);
         this.setPreferredSize(new Dimension(1920,1080));
 
-        inicio=new Panelinicio();
-        inicio.setBounds(450,0, 600, 790);
-        this.add(inicio);
+        //inicio=new Panelinicio();
+       // inicio.setBounds(450,0, 600, 790);
+        //this.add(inicio);
+        AsientoClasic=new PanelAsientosClasic();
+        AsientoClasic.setBounds(450,0, 600, 790);
+        this.add(AsientoClasic);
        // categorias=new PanelCategoria();
         //categorias.setBounds(450,0, 600, 790);
         //this.add(categorias);

@@ -77,6 +77,5 @@ public class Panelinicio extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Dibuja el rectángulo
     }
 }
