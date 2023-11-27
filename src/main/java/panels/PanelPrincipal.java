@@ -5,8 +5,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class PanelPrincipal extends JPanel {
     private PanelCategoria categorias;
-    private Panelinicio inicio;
-    private  PanelAsientosClasic AsientoClasic;
+    private PanelInicio inicio;
+    private PanelMovimiento mov;
+    private PanelHora hora;
+    private PanelAsientosClasic AsientoClasic;
     public PanelPrincipal(){
         super();
         this.setBackground(Color.WHITE);
@@ -14,13 +16,22 @@ public class PanelPrincipal extends JPanel {
         this.setBounds(0,0,1920,1080);
         this.setPreferredSize(new Dimension(1920,1080));
 
-        //inicio=new Panelinicio();
-       // inicio.setBounds(450,0, 600, 790);
-        //this.add(inicio);
-        AsientoClasic=new PanelAsientosClasic();
-        AsientoClasic.setBounds(450,0, 600, 790);
-        this.add(AsientoClasic);
-       // categorias=new PanelCategoria();
+//        inicio = new PanelInicio();
+//        inicio.setBounds(450,0, 600, 730);
+//        this.add(inicio);
+
+        mov = new PanelMovimiento(this);
+        mov.setBounds(0,730,1920,60);
+        this.add(mov);
+
+        hora = new PanelHora();
+        hora.setBounds(500,50,500,1080);
+        this.add(hora);
+
+//        AsientoClasic=new PanelAsientosClasic();
+//        AsientoClasic.setBounds(450,0, 600, 790);
+//        this.add(AsientoClasic);
+        // categorias=new PanelCategoria();
         //categorias.setBounds(450,0, 600, 790);
         //this.add(categorias);
 
@@ -39,6 +50,10 @@ public class PanelPrincipal extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
     }
+    public void cambiarPanel(){
+        int quePanel = 1;
+        if(quePanel == 1);
+    }
 
     /** Metodo para manejar los clicks en todas las ventanas, manda las coordenadas del click a los otros paneles.
      *
@@ -46,7 +61,6 @@ public class PanelPrincipal extends JPanel {
      * @param y coordenada Y del click.
      */
     public void handleMouseClick(int x, int y){
-        //expendedor.handleClick(x, y);
-        //comprador.handleClick(x, y);
+
     }
 }

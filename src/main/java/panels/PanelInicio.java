@@ -7,12 +7,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Panelinicio extends JPanel {
+public class PanelInicio extends JPanel {
     private JComboBox<String> origenComboBox;
     private JComboBox<String> destinoComboBox;
     private JDateChooser fechaChooser;
 
-    public Panelinicio() {
+    public PanelInicio() {
         super();
         setBounds(920, 40, 380, 530);
         this.setLayout(null);
