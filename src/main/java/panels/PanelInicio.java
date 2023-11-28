@@ -78,4 +78,7 @@ public class PanelInicio extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
+    public void handleClick(int x, int y){
+        repaint();
+    }
 }

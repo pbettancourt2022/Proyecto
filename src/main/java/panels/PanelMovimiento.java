@@ -7,10 +7,6 @@ import java.awt.event.ActionListener;
 
 public class PanelMovimiento extends JPanel {
     /**
-     * Integer que lleva cuenta de cual panel es el que se está mostrando
-     */
-    private int quePanel;
-    /**
      * Ocupamos esta instancia para conectar el panel principal con este
      */
     private PanelPrincipal panelPrincipal;
@@ -32,13 +28,13 @@ public class PanelMovimiento extends JPanel {
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                panelPrincipal.retrocederPanel();
             }
         });
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                panelPrincipal.avanzarPanel();
             }
         });
 
@@ -50,5 +46,4 @@ public class PanelMovimiento extends JPanel {
     public void handleClick(int x, int y){
         repaint();
     }
-    public int getQuePanel(){return quePanel;}
 }

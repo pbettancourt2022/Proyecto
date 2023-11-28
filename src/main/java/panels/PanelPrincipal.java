@@ -9,6 +9,10 @@ public class PanelPrincipal extends JPanel {
     private PanelMovimiento mov;
     private PanelHora hora;
     private PanelAsientosClasic AsientoClasic;
+    /**
+     * Integer que lleva cuenta de cual panel es el que se está mostrando
+     */
+    private int quePanel;
     public PanelPrincipal(){
         super();
         this.setBackground(Color.WHITE);
@@ -16,9 +20,11 @@ public class PanelPrincipal extends JPanel {
         this.setBounds(0,0,1920,1080);
         this.setPreferredSize(new Dimension(1920,1080));
 
-//        inicio = new PanelInicio();
-//        inicio.setBounds(450,0, 600, 730);
-//        this.add(inicio);
+        quePanel = 1;
+
+        inicio = new PanelInicio();
+        inicio.setBounds(450,0, 600, 730);
+        this.add(inicio);
 
         mov = new PanelMovimiento(this);
         mov.setBounds(0,730,1920,60);
@@ -26,11 +32,10 @@ public class PanelPrincipal extends JPanel {
 
         hora = new PanelHora();
         hora.setBounds(500,50,500,1080);
-        this.add(hora);
 
-//        AsientoClasic=new PanelAsientosClasic();
-//        AsientoClasic.setBounds(450,0, 600, 790);
-//        this.add(AsientoClasic);
+        AsientoClasic = new PanelAsientosClasic();
+        AsientoClasic.setBounds(450,0, 600, 790);
+
         // categorias=new PanelCategoria();
         //categorias.setBounds(450,0, 600, 790);
         //this.add(categorias);
@@ -50,9 +55,36 @@ public class PanelPrincipal extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
     }
-    public void cambiarPanel(){
-        int quePanel = 1;
-        if(quePanel == 1);
+    public void avanzarPanel(){
+        System.out.println(quePanel);
+        if(quePanel == 1){
+            this.remove(inicio);
+            this.add(hora);
+            quePanel++;
+        }
+        else if(quePanel == 2){
+            this.remove(hora);
+            this.add(AsientoClasic);
+            quePanel++;
+        }
+        else;
+        revalidate();
+        repaint();
+    }
+    public void retrocederPanel(){
+        System.out.println(quePanel);
+        if(quePanel == 3){
+            this.remove(AsientoClasic);
+            this.add(hora);
+            quePanel--;
+        }
+        else if(quePanel == 2){
+            this.remove(hora);
+            this.add(inicio);
+            quePanel--;
+        } else;
+        revalidate();
+        repaint();
     }
 
     /** Metodo para manejar los clicks en todas las ventanas, manda las coordenadas del click a los otros paneles.
@@ -61,6 +93,9 @@ public class PanelPrincipal extends JPanel {
      * @param y coordenada Y del click.
      */
     public void handleMouseClick(int x, int y){
-
+        inicio.handleClick(x,y);
+        mov.handleClick(x,y);
+        hora.handleClick(x,y);
+        AsientoClasic.handleClick(x,y);
     }
 }

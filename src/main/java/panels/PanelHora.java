@@ -30,5 +30,7 @@ public class PanelHora extends JPanel {
         this.add(labels);
 
     }
-
+    public void handleClick(int x, int y){
+        repaint();
+    }
 }

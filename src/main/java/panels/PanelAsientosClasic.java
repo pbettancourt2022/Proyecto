@@ -18,4 +18,7 @@ public class PanelAsientosClasic extends JPanel {
         }
         this.add(AsientosIzquierda);
     }
+    public void handleClick(int x, int y){
+        repaint();
+    }
 }
