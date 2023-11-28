@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Date;
 
 public class PanelInicio extends JPanel {
     private JComboBox<String> origenComboBox;
@@ -63,15 +66,38 @@ public class PanelInicio extends JPanel {
         Inicio.add(rectanguloFecha);
         Inicio.add(fechaChooser);
         this.add(Inicio);
-
-        JButton btnSiguiente = new JButton("Siguiente");
-        btnSiguiente.setBounds(250, 450, 120, 40);
-        btnSiguiente.addActionListener(new ActionListener() {
+        // Agregar ActionListener para el JComboBox de origen
+        origenComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String origenSeleccionado = (String) origenComboBox.getSelectedItem();
+                // Aquí puedes guardar la selección del origen en alguna variable o estructura de datos
+                // Ejemplo: guardarOrigen(origenSeleccionado);
             }
         });
-        this.add(btnSiguiente);
+
+        // Agregar ActionListener para el JComboBox de destino
+        destinoComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String destinoSeleccionado = (String) destinoComboBox.getSelectedItem();
+                // Aquí puedes guardar la selección del destino en alguna variable o estructura de datos
+                // Ejemplo: guardarDestino(destinoSeleccionado);
+            }
+        });
+
+        // Agregar PropertyChangeListener para el JDateChooser
+        fechaChooser.addPropertyChangeListener("date", new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if ("date".equals(evt.getPropertyName())) {
+                    // Obtener la fecha seleccionada del JDateChooser
+                    Date fechaSeleccionada = fechaChooser.getDate();
+                    // Aquí puedes guardar la fecha seleccionada en alguna variable o estructura de datos
+                    // Ejemplo: guardarFecha(fechaSeleccionada);
+                }
+            }
+        });
     }
 
     @Override
