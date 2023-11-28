@@ -9,6 +9,8 @@ public class PanelPrincipal extends JPanel {
     private PanelMovimiento mov;
     private PanelHora hora;
     private PanelAsientosClasic AsientoClasic;
+    private PanelAsientosSemicama AsientoSemicama;
+    private PanelAsientosSaloncama AsientoSaloncama;
     /**
      * Integer que lleva cuenta de cual panel es el que se está mostrando
      */
@@ -34,7 +36,13 @@ public class PanelPrincipal extends JPanel {
         hora.setBounds(500,50,500,1080);
 
         AsientoClasic = new PanelAsientosClasic();
-        AsientoClasic.setBounds(450,0, 600, 790);
+        AsientoClasic.setBounds(150,0, 600, 790);
+
+        AsientoSemicama = new PanelAsientosSemicama();
+        AsientoSemicama.setBounds(150,0, 600, 790);
+
+        AsientoSaloncama = new PanelAsientosSaloncama();
+        AsientoSaloncama.setBounds(150,0, 600, 790);
 
         // categorias=new PanelCategoria();
         //categorias.setBounds(450,0, 600, 790);
