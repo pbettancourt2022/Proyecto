@@ -44,9 +44,6 @@ public class PanelPrincipal extends JPanel {
         AsientoSaloncama = new PanelAsientosSaloncama();
         AsientoSaloncama.setBounds(150,0, 600, 790);
 
-        // categorias=new PanelCategoria();
-        //categorias.setBounds(450,0, 600, 790);
-        //this.add(categorias);
 
         // Agrega el MouseListener
         addMouseListener(new MouseAdapter() {
@@ -105,5 +102,7 @@ public class PanelPrincipal extends JPanel {
         mov.handleClick(x,y);
         hora.handleClick(x,y);
         AsientoClasic.handleClick(x,y);
+        AsientoSaloncama.handleClick(x,y);
+        AsientoSemicama.handleClick(x,y);
     }
 }
