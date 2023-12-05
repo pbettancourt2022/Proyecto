@@ -11,6 +11,7 @@ public class PanelPrincipal extends JPanel {
     private PanelAsientosClasic AsientoClasic;
     private PanelAsientosSemicama AsientoSemicama;
     private PanelAsientosSaloncama AsientoSaloncama;
+    private PanelDatos Datos;
     /**
      * Integer que lleva cuenta de cual panel es el que se está mostrando
      */
@@ -36,13 +37,16 @@ public class PanelPrincipal extends JPanel {
         hora.setBounds(500,50,500,1080);
 
         AsientoClasic = new PanelAsientosClasic();
-        AsientoClasic.setBounds(150,0, 600, 790);
+        AsientoClasic.setBounds(100,0, 600, 790);
 
         AsientoSemicama = new PanelAsientosSemicama();
-        AsientoSemicama.setBounds(150,0, 600, 790);
+        AsientoSemicama.setBounds(100,0, 600, 790);
 
         AsientoSaloncama = new PanelAsientosSaloncama();
-        AsientoSaloncama.setBounds(150,0, 600, 790);
+        AsientoSaloncama.setBounds(100,0, 600, 790);
+
+        Datos=new PanelDatos();
+        Datos.setBounds(830,0, 600, 790);
 
 
         // Agrega el MouseListener
@@ -70,6 +74,7 @@ public class PanelPrincipal extends JPanel {
         else if(quePanel == 2){
             this.remove(hora);
             this.add(AsientoClasic);
+            this.add(Datos);
             quePanel++;
         }
         else;
@@ -80,6 +85,7 @@ public class PanelPrincipal extends JPanel {
         System.out.println(quePanel);
         if(quePanel == 3){
             this.remove(AsientoClasic);
+            this.remove(Datos);
             this.add(hora);
             quePanel--;
         }
@@ -104,5 +110,6 @@ public class PanelPrincipal extends JPanel {
         AsientoClasic.handleClick(x,y);
         AsientoSaloncama.handleClick(x,y);
         AsientoSemicama.handleClick(x,y);
+        Datos.handleClick(x,y);
     }
 }

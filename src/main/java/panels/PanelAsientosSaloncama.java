@@ -1,5 +1,4 @@
 package panels;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,9 +8,13 @@ public class PanelAsientosSaloncama extends JPanel {
         setBounds(920, 40, 380, 530);
         this.setLayout(null);
         JLabel titulo = new JLabel("Asientos Salón-Cama", SwingConstants.CENTER);
-        titulo.setBounds(100, 50, 380, 30);
+        titulo.setBounds(120, 50, 380, 30);
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         this.add(titulo);
+        JLabel titulo1 = new JLabel("Primer Piso", SwingConstants.CENTER);
+        titulo1.setBounds(120, 80, 380, 30);
+        titulo1.setFont(new Font("Arial", Font.BOLD, 14));
+        this.add(titulo1);
         JPanel AsientosIzquierda = new JPanel();
         AsientosIzquierda.setBounds(130, 150, 150, 180);
         AsientosIzquierda.setLayout(new GridLayout(4, 2));

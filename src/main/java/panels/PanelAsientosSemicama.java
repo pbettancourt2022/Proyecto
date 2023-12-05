@@ -8,10 +8,14 @@ public class PanelAsientosSemicama extends JPanel {
         super();
         setBounds(920, 40, 380, 530);
         this.setLayout(null);
-        JLabel titulo = new JLabel("Asientos Salón-Cama", SwingConstants.CENTER);
-        titulo.setBounds(100, 50, 380, 30);
+        JLabel titulo = new JLabel("Asientos Semi-Cama", SwingConstants.CENTER);
+        titulo.setBounds(120, 50, 380, 30);
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         this.add(titulo);
+        JLabel titulo1 = new JLabel("Segundo Piso", SwingConstants.CENTER);
+        titulo1.setBounds(120, 80, 380, 30);
+        titulo1.setFont(new Font("Arial", Font.BOLD, 14));
+        this.add(titulo1);
         JPanel AsientosIzquierda = new JPanel();
         AsientosIzquierda.setBounds(100, 150, 150, 450);
         AsientosIzquierda.setLayout(new GridLayout(10, 2));
