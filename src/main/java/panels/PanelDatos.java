@@ -9,6 +9,7 @@ public class PanelDatos extends JPanel {
     private JTextField campoNombre;
     private JRadioButton siRadioButton;
     private JRadioButton noRadioButton;
+    private JTextArea areaDatosCompra;
 
     public PanelDatos() {
         super();
@@ -50,21 +51,42 @@ public class PanelDatos extends JPanel {
 
         // Botón "Confirmar Datos"
         JButton confirmarDatosButton = new JButton("Confirmar Datos");
-        confirmarDatosButton.setBounds(25, 260, 150, 30);
+        confirmarDatosButton.setBounds(25, 320, 150, 30);
         confirmarDatosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Obtener el texto del campo de nombre y la opción seleccionada
+                // Obtener todos los datos ingresados en los campos
                 String nombre = campoNombre.getText();
                 String seleccionPasaje = (siRadioButton.isSelected()) ? "Sí" : "No";
+                // Obtener otros datos de otros paneles
+                // Supongamos que obtienes la información de otros paneles como PanelOrigen, PanelDestino, etc.
+                //String origen = PanelOrigen.getOrigen(); // Obtener el origen desde otro panel
+               // String destino = PanelDestino.getDestino();
+                //String destino = PanelDestino.getDestino();
+                //String destino = PanelDestino.getDestino();
+                //String destino = PanelDestino.getDestino();
+                //String destino = PanelDestino.getDestino();
+                // Obtener otros datos de otros paneles...
 
-                // Aquí puedes hacer lo que necesites con los datos recopilados
-                // Por ejemplo, imprimirlos en la consola
-                System.out.println("Nombre: " + nombre);
-                System.out.println("Pasaje estudiante: " + seleccionPasaje);
+                // Construir el texto con la información recopilada
+                StringBuilder datosCompra = new StringBuilder();
+                datosCompra.append("Nombre: ").append(nombre).append("\n");
+                datosCompra.append("Pasaje estudiante: ").append(seleccionPasaje).append("\n");
+                //datosCompra.append("Origen: ").append(origen).append("\n");
+                //datosCompra.append("Destino: ").append(destino).append("\n");
+                // Agregar otros datos al texto...
+
+                // Mostrar los datos en el JTextArea
+                areaDatosCompra.setText(datosCompra.toString());
             }
         });
         this.add(confirmarDatosButton);
+
+        // JTextArea para mostrar los datos de la compra
+        areaDatosCompra = new JTextArea();
+        areaDatosCompra.setEditable(false);
+        areaDatosCompra.setBounds(25, 370, 330, 150);
+        this.add(areaDatosCompra);
     }
 
     public void handleClick(int x, int y) {
