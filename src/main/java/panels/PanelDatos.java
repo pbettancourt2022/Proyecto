@@ -61,6 +61,8 @@ public class PanelDatos extends JPanel {
                 // Obtener todos los datos ingresados en los campos
                 String nombre = campoNombre.getText();
                 String seleccionPasaje = (siRadioButton.isSelected()) ? "Sí" : "No";
+                if(siRadioButton.isSelected()) seleccionPasaje = "Sí";
+                if(noRadioButton.isSelected()) seleccionPasaje = "No";
                 // agregar datos al pasaje
                 pasaje.setNombre(nombre);
                 if (seleccionPasaje.equals("Sí")) pasaje.setPago("Estudiante");
@@ -76,9 +78,6 @@ public class PanelDatos extends JPanel {
                 datosCompra.append("Número de asiento: ").append(String.valueOf(pasaje.getNumAsiento())).append("\n");
                 datosCompra.append("Nombre: ").append(nombre).append("\n");
                 datosCompra.append("Pasaje estudiante: ").append(seleccionPasaje).append("\n");
-                //datosCompra.append("Origen: ").append(origen).append("\n");
-                //datosCompra.append("Destino: ").append(destino).append("\n");
-                // Agregar otros datos al texto...
 
                 // Mostrar los datos en el JTextArea
                 areaDatosCompra.setText(datosCompra.toString());

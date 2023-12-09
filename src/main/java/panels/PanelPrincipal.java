@@ -1,6 +1,8 @@
 package panels;
 
 import org.example.Pasaje;
+import org.example.TipoAsiento;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -49,7 +51,7 @@ public class PanelPrincipal extends JPanel {
         AsientoSaloncama.setBounds(100,0, 600, 790);
 
         Datos = new PanelDatos(pasaje);
-        Datos.setBounds(830,0, 600, 790);
+        Datos.setBounds(830,0, 600, 800);
 
 
         // Agrega el MouseListener
@@ -68,17 +70,34 @@ public class PanelPrincipal extends JPanel {
         super.paint(g);
     }
     public void avanzarPanel(){
-        System.out.println(quePanel);
         if(quePanel == 1){
-            this.remove(inicio);
-            this.add(hora);
-            quePanel++;
+            if(pasaje.getCiudadInicio() == null || pasaje.getCiudadDestino() == null || pasaje.getFecha() == null);
+            else {
+                this.remove(inicio);
+                this.add(hora);
+                quePanel++;
+            }
         }
         else if(quePanel == 2){
-            this.remove(hora);
-            this.add(AsientoClasic);
-            this.add(Datos);
-            quePanel++;
+            if(pasaje.getHora() == null || pasaje.getTipoAsiento() == null);
+            else if(pasaje.getTipoAsiento().equals(TipoAsiento.CLASICO.getNombre())){
+                this.remove(hora);
+                this.add(AsientoClasic);
+                this.add(Datos);
+                quePanel++;
+            }
+            else if(pasaje.getTipoAsiento().equals(TipoAsiento.SEMICAMA.getNombre())){
+                this.remove(hora);
+                this.add(AsientoSemicama);
+                this.add(Datos);
+                quePanel++;
+            }
+            else if(pasaje.getTipoAsiento().equals(TipoAsiento.SALONCAMA.getNombre())){
+                this.remove(hora);
+                this.add(AsientoSaloncama);
+                this.add(Datos);
+                quePanel++;
+            }
         }
         else;
         revalidate();
@@ -88,15 +107,36 @@ public class PanelPrincipal extends JPanel {
     public void retrocederPanel(){
         System.out.println(quePanel);
         if(quePanel == 3){
-            this.remove(AsientoClasic);
-            this.remove(Datos);
-            this.add(hora);
-            quePanel--;
+            if(pasaje.getTipoAsiento().equals(TipoAsiento.CLASICO.getNombre())) {
+                this.remove(AsientoClasic);
+                this.remove(Datos);
+                this.add(hora);
+                quePanel--;
+            }
+            if(pasaje.getTipoAsiento().equals(TipoAsiento.SEMICAMA.getNombre())) {
+                this.remove(AsientoSemicama);
+                this.remove(Datos);
+                this.add(hora);
+                quePanel--;
+            }
+            if(pasaje.getTipoAsiento().equals(TipoAsiento.SALONCAMA.getNombre())) {
+                this.remove(AsientoSaloncama);
+                this.remove(Datos);
+                this.add(hora);
+                quePanel--;
+            }
+            pasaje.setTipoAsiento(null);
+            pasaje.setHora(null);
         }
         else if(quePanel == 2){
             this.remove(hora);
             this.add(inicio);
             quePanel--;
+            pasaje.setTipoAsiento(null);
+            pasaje.setHora(null);
+            pasaje.setFecha(null);
+            pasaje.setCiudadDestino(null);
+            pasaje.setCiudadInicio(null);
         } else;
         revalidate();
         repaint();

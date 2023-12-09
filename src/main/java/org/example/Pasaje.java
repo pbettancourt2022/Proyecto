@@ -28,5 +28,16 @@ public class Pasaje {
     public int getNumAsiento(){return numAsiento;}
     public void setNombre(String nombre){this.nombre = nombre;}
     public void setPago(String pago){this.pago = pago;}
-    public String toString(){return "a" + ciudadInicio + ciudadDestino + fecha + hora + tipoAsiento + numAsiento + nombre + pago;}
+    public String toString() {
+        return "Pasaje{" +
+                "ciudadInicio = '" + ciudadInicio + '\'' +
+                ", ciudadDestino = '" + ciudadDestino + '\'' +
+                ", fecha = " + fecha +
+                ", hora = " + hora +
+                ", tipoAsiento = '" + tipoAsiento + '\'' +
+                ", numAsiento = " + numAsiento +
+                ", nombre = '" + nombre + '\'' +
+                ", pago = '" + pago + '\'' +
+                '}';
+    }
 }
