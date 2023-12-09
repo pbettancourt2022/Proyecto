@@ -1,5 +1,7 @@
 package panels;
 
+import org.example.Pasaje;
+
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
@@ -15,7 +17,7 @@ public class PanelInicio extends JPanel {
     private JComboBox<String> destinoComboBox;
     private JDateChooser fechaChooser;
 
-    public PanelInicio() {
+    public PanelInicio(Pasaje pasaje) {
         super();
         setBounds(920, 40, 380, 530);
         this.setLayout(null);
@@ -70,9 +72,7 @@ public class PanelInicio extends JPanel {
         origenComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String origenSeleccionado = (String) origenComboBox.getSelectedItem();
-                // Aquí puedes guardar la selección del origen en alguna variable o estructura de datos
-                // Ejemplo: guardarOrigen(origenSeleccionado);
+                pasaje.setCiudadInicio((String) origenComboBox.getSelectedItem());
             }
         });
 
@@ -80,9 +80,7 @@ public class PanelInicio extends JPanel {
         destinoComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String destinoSeleccionado = (String) destinoComboBox.getSelectedItem();
-                // Aquí puedes guardar la selección del destino en alguna variable o estructura de datos
-                // Ejemplo: guardarDestino(destinoSeleccionado);
+                pasaje.setCiudadDestino((String) destinoComboBox.getSelectedItem());
             }
         });
 
@@ -92,9 +90,8 @@ public class PanelInicio extends JPanel {
             public void propertyChange(PropertyChangeEvent evt) {
                 if ("date".equals(evt.getPropertyName())) {
                     // Obtener la fecha seleccionada del JDateChooser
-                    Date fechaSeleccionada = fechaChooser.getDate();
-                    // Aquí puedes guardar la fecha seleccionada en alguna variable o estructura de datos
-                    // Ejemplo: guardarFecha(fechaSeleccionada);
+                    pasaje.setFecha(fechaChooser.getDate());
+
                 }
             }
         });

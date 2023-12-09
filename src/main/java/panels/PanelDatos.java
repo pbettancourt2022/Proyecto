@@ -1,4 +1,5 @@
 package panels;
+import org.example.Pasaje;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,15 +7,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelDatos extends JPanel {
+    Pasaje pasaje;
     private JTextField campoNombre;
     private JRadioButton siRadioButton;
     private JRadioButton noRadioButton;
     private JTextArea areaDatosCompra;
 
-    public PanelDatos() {
+    public PanelDatos(Pasaje pasaje) {
         super();
         setBounds(920, 40, 380, 530);
         this.setLayout(null);
+        this.pasaje = pasaje;
 
         JLabel titulo = new JLabel("Datos Personales", SwingConstants.CENTER);
         titulo.setBounds(120, 50, 380, 30);
@@ -58,18 +61,19 @@ public class PanelDatos extends JPanel {
                 // Obtener todos los datos ingresados en los campos
                 String nombre = campoNombre.getText();
                 String seleccionPasaje = (siRadioButton.isSelected()) ? "Sí" : "No";
-                // Obtener otros datos de otros paneles
-                // Supongamos que obtienes la información de otros paneles como PanelOrigen, PanelDestino, etc.
-                //String origen = PanelOrigen.getOrigen(); // Obtener el origen desde otro panel
-               // String destino = PanelDestino.getDestino();
-                //String destino = PanelDestino.getDestino();
-                //String destino = PanelDestino.getDestino();
-                //String destino = PanelDestino.getDestino();
-                //String destino = PanelDestino.getDestino();
-                // Obtener otros datos de otros paneles...
+                // agregar datos al pasaje
+                pasaje.setNombre(nombre);
+                if (seleccionPasaje.equals("Sí")) pasaje.setPago("Estudiante");
+                else pasaje.setPago("Normal");
 
                 // Construir el texto con la información recopilada
                 StringBuilder datosCompra = new StringBuilder();
+                datosCompra.append("Origen: ").append(pasaje.getCiudadInicio()).append("\n");
+                datosCompra.append("Destino: ").append(pasaje.getCiudadDestino()).append("\n");
+                datosCompra.append("Fecha: ").append(pasaje.getFecha()).append("\n");
+                datosCompra.append("Hora: ").append(pasaje.getHora()).append("\n");
+                datosCompra.append("Tipo de asiento: ").append(pasaje.getTipoAsiento()).append("\n");
+                datosCompra.append("Número de asiento: ").append(String.valueOf(pasaje.getNumAsiento())).append("\n");
                 datosCompra.append("Nombre: ").append(nombre).append("\n");
                 datosCompra.append("Pasaje estudiante: ").append(seleccionPasaje).append("\n");
                 //datosCompra.append("Origen: ").append(origen).append("\n");

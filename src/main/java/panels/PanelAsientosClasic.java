@@ -1,15 +1,23 @@
 package panels;
 
+import org.example.Pasaje;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PanelAsientosClasic extends JPanel {
-    public PanelAsientosClasic(){
+    private Pasaje pasaje;
+    public PanelAsientosClasic(Pasaje pasaje){
         super();
         setBounds(920, 40, 380, 530);
         this.setLayout(null);
+        this.pasaje = pasaje;
+
+
         JLabel titulo = new JLabel("Asientos Clasicos", SwingConstants.CENTER);
         titulo.setBounds(120, 50, 380, 30);
+
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         this.add(titulo);
         JLabel titulo1 = new JLabel("Primer Piso", SwingConstants.CENTER);
@@ -20,23 +28,28 @@ public class PanelAsientosClasic extends JPanel {
         AsientosIzquierda.setBounds(100, 150, 150, 450);
         AsientosIzquierda.setLayout(new GridLayout(10, 2));
         for (int i =1; i<=40;i++){
+            int numAsiento = i;
             JButton a = new JButton(String.valueOf(i));
             a.setBounds(0, 0, 80, 60);
             AsientosIzquierda.add(a);
             if(i%2==0){
                 i=i+2;
+
             }
+            a.addActionListener(e -> pasaje.setNumAsiento(numAsiento));
         }
         JPanel AsientosDerecha = new JPanel();
         AsientosDerecha.setBounds(350, 150, 150, 450);
         AsientosDerecha.setLayout(new GridLayout(10, 2));
         for (int i =3; i<=40;i++){
+            int numAsiento = i;
             JButton a = new JButton(String.valueOf(i));
             a.setBounds(0, 0, 80, 60);
             AsientosDerecha.add(a);
             if(i%2==0){
                 i=i+2;
             }
+            a.addActionListener(e -> pasaje.setNumAsiento(numAsiento));
         }
         this.add(AsientosIzquierda);
         this.add(AsientosDerecha);

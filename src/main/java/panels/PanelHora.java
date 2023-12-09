@@ -1,8 +1,8 @@
 package panels;
 
-import org.example.Asiento;
+import org.example.Pasaje;
 import org.example.TipoAsiento;
-import org.example.AsientosLista;
+import org.example.PasajesLista;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,16 +13,15 @@ import java.time.LocalTime;
 
 
 public class PanelHora extends JPanel {
-    Asiento asiento;
+    Pasaje pasaje;
     String queAsiento;
     String queHora;
-    public PanelHora(){
+    public PanelHora(Pasaje pasaje){
         super();
         setLayout(null);
+        this.pasaje = pasaje;
 
         // botones de compra
-
-        // botones de compra\
         JPanel botones = new JPanel(new GridLayout(13,1));
         ButtonGroup gBotones = new ButtonGroup();
 
@@ -37,69 +36,78 @@ public class PanelHora extends JPanel {
         JRadioButton b9 = new JRadioButton();
         JRadioButton b10 = new JRadioButton();
         JRadioButton b11 = new JRadioButton();
-
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.CLASICO.getNombre(), new Date(2023,10,20), LocalTime.of(7,0));}
-        });
+                pasaje.setTipoAsiento(TipoAsiento.CLASICO.getNombre());
+                pasaje.setHora(LocalTime.of(7,0));
+        }});
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.SEMICAMA.getNombre(), new Date(2023,10,20), LocalTime.of(8,0));}
-        });
+                pasaje.setTipoAsiento(TipoAsiento.SEMICAMA.getNombre());
+                pasaje.setHora(LocalTime.of(8,0));
+        }});
         b3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.SALONCAMA.getNombre(), new Date(2023,10,20), LocalTime.of(8,0));
+                pasaje.setTipoAsiento(TipoAsiento.SALONCAMA.getNombre());
+                pasaje.setHora(LocalTime.of(8,0));
             }
         });
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.CLASICO.getNombre(), new Date(2023,10,20), LocalTime.of(10,0));
+                pasaje.setTipoAsiento(TipoAsiento.CLASICO.getNombre());
+                pasaje.setHora(LocalTime.of(10,0));
             }
         });
         b5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.SEMICAMA.getNombre(), new Date(2023,10,20), LocalTime.of(12,0));
+                pasaje.setTipoAsiento(TipoAsiento.SEMICAMA.getNombre());
+                pasaje.setHora(LocalTime.of(12,0));
             }
         });
         b6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.SALONCAMA.getNombre(), new Date(2023,10,20), LocalTime.of(12,0));
-            }
+                pasaje.setTipoAsiento(TipoAsiento.SALONCAMA.getNombre());
+                pasaje.setHora(LocalTime.of(12,0));            }
         });
         b7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.CLASICO.getNombre(), new Date(2023,10,20), LocalTime.of(15,0));
+                pasaje.setTipoAsiento(TipoAsiento.CLASICO.getNombre());
+                pasaje.setHora(LocalTime.of(15,0));
             }
         });
         b8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.CLASICO.getNombre(), new Date(2023,10,20), LocalTime.of(17,0));
+                pasaje.setTipoAsiento(TipoAsiento.CLASICO.getNombre());
+                pasaje.setHora(LocalTime.of(17,0));
             }
         });
         b9.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.SEMICAMA.getNombre(), new Date(2023,10,20), LocalTime.of(18,0));
+                pasaje.setTipoAsiento(TipoAsiento.SEMICAMA.getNombre());
+                pasaje.setHora(LocalTime.of(18,0));
             }
         });
         b10.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.SALONCAMA.getNombre(), new Date(2023,10,20), LocalTime.of(18,0));
+                pasaje.setTipoAsiento(TipoAsiento.SALONCAMA.getNombre());
+                pasaje.setHora(LocalTime.of(18,0));
             }
         });
         b11.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                asiento = new Asiento(TipoAsiento.CLASICO.getNombre(), new Date(2023,10,20), LocalTime.of(20,0));
+                pasaje.setTipoAsiento(TipoAsiento.CLASICO.getNombre());
+                pasaje.setHora(LocalTime.of(20,0));
             }
         });
 

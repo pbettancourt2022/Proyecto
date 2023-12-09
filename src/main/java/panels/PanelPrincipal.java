@@ -1,10 +1,12 @@
 package panels;
+
+import org.example.Pasaje;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class PanelPrincipal extends JPanel {
-    private PanelCategoria categorias;
+    private Pasaje pasaje;
     private PanelInicio inicio;
     private PanelMovimiento mov;
     private PanelHora hora;
@@ -22,10 +24,11 @@ public class PanelPrincipal extends JPanel {
         this.setLayout(null);
         this.setBounds(0,0,1920,1080);
         this.setPreferredSize(new Dimension(1920,1080));
+        pasaje = new Pasaje();
 
         quePanel = 1;
 
-        inicio = new PanelInicio();
+        inicio = new PanelInicio(pasaje);
         inicio.setBounds(450,0, 600, 730);
         this.add(inicio);
 
@@ -33,19 +36,19 @@ public class PanelPrincipal extends JPanel {
         mov.setBounds(0,730,1920,60);
         this.add(mov);
 
-        hora = new PanelHora();
+        hora = new PanelHora(pasaje);
         hora.setBounds(500,50,500,1080);
 
-        AsientoClasic = new PanelAsientosClasic();
+        AsientoClasic = new PanelAsientosClasic(pasaje);
         AsientoClasic.setBounds(100,0, 600, 790);
 
-        AsientoSemicama = new PanelAsientosSemicama();
+        AsientoSemicama = new PanelAsientosSemicama(pasaje);
         AsientoSemicama.setBounds(100,0, 600, 790);
 
-        AsientoSaloncama = new PanelAsientosSaloncama();
+        AsientoSaloncama = new PanelAsientosSaloncama(pasaje);
         AsientoSaloncama.setBounds(100,0, 600, 790);
 
-        Datos=new PanelDatos();
+        Datos = new PanelDatos(pasaje);
         Datos.setBounds(830,0, 600, 790);
 
 
@@ -80,6 +83,7 @@ public class PanelPrincipal extends JPanel {
         else;
         revalidate();
         repaint();
+        System.out.println(pasaje.toString());
     }
     public void retrocederPanel(){
         System.out.println(quePanel);
