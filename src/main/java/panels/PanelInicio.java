@@ -96,6 +96,17 @@ public class PanelInicio extends JPanel {
             }
         });
     }
+    public JComboBox<String> getOrigenComboBox() {
+        return origenComboBox;
+    }
+
+    public JComboBox<String> getDestinoComboBox() {
+        return destinoComboBox;
+    }
+
+    public JDateChooser getFechaChooser() {
+        return fechaChooser;
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
