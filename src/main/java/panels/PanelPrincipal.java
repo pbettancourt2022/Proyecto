@@ -1,6 +1,7 @@
 package panels;
 
 import org.example.Pasaje;
+import org.example.PasajesLista;
 import org.example.TipoAsiento;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class PanelPrincipal extends JPanel {
     private Pasaje pasaje;
+    private PasajesLista pasajesLista;
     private PanelInicio inicio;
     private PanelMovimiento mov;
     private PanelHora hora;
@@ -27,6 +29,7 @@ public class PanelPrincipal extends JPanel {
         this.setBounds(0,0,1920,1080);
         this.setPreferredSize(new Dimension(1920,1080));
         pasaje = new Pasaje();
+        pasajesLista = new PasajesLista();
 
         quePanel = 1;
 
@@ -50,8 +53,8 @@ public class PanelPrincipal extends JPanel {
         AsientoSaloncama = new PanelAsientosSaloncama(pasaje);
         AsientoSaloncama.setBounds(100,0, 600, 790);
 
-        Datos = new PanelDatos(pasaje);
-        Datos.setBounds(830,0, 600, 800);
+        Datos = new PanelDatos(pasaje, this);
+        Datos.setBounds(830,0, 600, 750);
 
 
         // Agrega el MouseListener
@@ -140,6 +143,20 @@ public class PanelPrincipal extends JPanel {
         } else;
         revalidate();
         repaint();
+    }
+    public void finalizarCompra(){
+        pasajesLista.addPasaje(pasaje);
+        pasaje = new Pasaje();
+        this.remove(Datos); this.remove(AsientoSaloncama); this.remove(AsientoSemicama); this.remove(AsientoClasic);
+
+        // crea de cero los paneles
+        inicio = new PanelInicio(pasaje); inicio.setBounds(450,0, 600, 730);
+        hora = new PanelHora(pasaje); hora.setBounds(500,50,500,1080);
+        Datos = new PanelDatos(pasaje, this); Datos.setBounds(830,0, 600, 750);
+
+        this.add(inicio);
+        this.repaint();
+        quePanel = 1;
     }
 
     /** Metodo para manejar los clicks en todas las ventanas, manda las coordenadas del click a los otros paneles.

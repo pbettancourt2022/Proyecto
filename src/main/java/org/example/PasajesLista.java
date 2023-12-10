@@ -3,11 +3,11 @@ package org.example;
 import java.util.ArrayList;
 
 public class PasajesLista {
-    private ArrayList<Pasaje> asientos;
+    private ArrayList<Pasaje> pasajes;
     public PasajesLista(){
-        asientos = new ArrayList<>();
+        pasajes = new ArrayList<>();
     }
-    public ArrayList<Pasaje> getAsientos(){return asientos;}
-    public void addAsiento(Pasaje a){asientos.add(a);}
+    public ArrayList<Pasaje> getPasajes(){return pasajes;}
+    public void addPasaje(Pasaje a){pasajes.add(a);}
 
 }
