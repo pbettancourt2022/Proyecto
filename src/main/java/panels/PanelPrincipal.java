@@ -1,6 +1,7 @@
 package panels;
 
 import org.example.Pasaje;
+import org.example.PasajeSingleton;
 import org.example.PasajesLista;
 import org.example.TipoAsiento;
 
@@ -28,7 +29,7 @@ public class PanelPrincipal extends JPanel {
         this.setLayout(null);
         this.setBounds(0,0,1920,1080);
         this.setPreferredSize(new Dimension(1920,1080));
-        pasaje = new Pasaje();
+        pasaje = PasajeSingleton.obtenerInstancia();
         pasajesLista = new PasajesLista();
 
         quePanel = 1;
@@ -146,7 +147,11 @@ public class PanelPrincipal extends JPanel {
     }
     public void finalizarCompra(){
         pasajesLista.addPasaje(pasaje);
-        pasaje = new Pasaje();
+        // borra los datos de pasaje, como usamos singleton no podamos reinstanciar como antes
+        pasaje.setCiudadInicio(null); pasaje.setCiudadDestino(null); pasaje.setFecha(null); pasaje.setHora(null);
+        pasaje.setTipoAsiento(null); pasaje.setNumAsiento(0); pasaje.setPago(null);
+
+        // se remueven los ultimos paneles abiertos
         this.remove(Datos); this.remove(AsientoSaloncama); this.remove(AsientoSemicama); this.remove(AsientoClasic);
 
         // crea de cero los paneles
