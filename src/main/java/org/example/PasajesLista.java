@@ -9,5 +9,13 @@ public class PasajesLista {
     }
     public ArrayList<Pasaje> getPasajes(){return pasajes;}
     public void addPasaje(Pasaje a){pasajes.add(a);}
+    public boolean pasajeYaComprado(Pasaje pasaje) {
+        for (Pasaje p : pasajes) {
+            if (p.equals(pasaje)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

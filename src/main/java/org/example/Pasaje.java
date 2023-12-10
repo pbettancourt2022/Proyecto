@@ -2,6 +2,7 @@ package org.example;
 
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.Objects;
 
 public class Pasaje {
     String ciudadInicio;
@@ -39,5 +40,22 @@ public class Pasaje {
                 ", nombre = '" + nombre + '\'' +
                 ", pago = '" + pago + '\'' +
                 '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pasaje pasaje = (Pasaje) o;
+        return numAsiento == pasaje.numAsiento &&
+                Objects.equals(ciudadInicio, pasaje.ciudadInicio) &&
+                Objects.equals(ciudadDestino, pasaje.ciudadDestino) &&
+                Objects.equals(fecha, pasaje.fecha) &&
+                Objects.equals(hora, pasaje.hora) &&
+                Objects.equals(tipoAsiento, pasaje.tipoAsiento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ciudadInicio, ciudadDestino, fecha, hora, tipoAsiento, numAsiento);
     }
 }
