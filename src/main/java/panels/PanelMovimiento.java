@@ -5,11 +5,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase de tipo JPanel utilizada con el fin de mover los paneles.
+ */
 public class PanelMovimiento extends JPanel {
     /**
      * Ocupamos esta instancia para conectar el panel principal con este
      */
     private PanelPrincipal panelPrincipal;
+    /**
+     * Constructor de la clase, crea los botones de avance y retroceso, y utiliza dos métodos del panelPrincipal para cambiar
+     * los paneles.
+     * @param panelPrincipal
+     */
     public PanelMovimiento(PanelPrincipal panelPrincipal){
         super();
         setLayout(null);
@@ -41,8 +49,10 @@ public class PanelMovimiento extends JPanel {
         this.add(b1);
         this.add(b2);
     }
-
-
+    /** Recibe el click desde PanelPrincipal y repinta el panel
+     * @param x coordenada x del click
+     * @param y coordenada y del click
+     */
     public void handleClick(int x, int y){
         repaint();
     }

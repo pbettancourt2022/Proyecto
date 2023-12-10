@@ -12,11 +12,28 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Date;
 
+/**
+ * Clase JPanel que representa el panel en el que se inicia el programa, da la opcion de escoger origen, destino y fecha del viaje.
+ */
 public class PanelInicio extends JPanel {
+    /**
+     * JComboBox utilizado para seleccionar la ciudad de origen
+     */
     private JComboBox<String> origenComboBox;
+    /**
+     * JComboBox utilizado para seleccionar la ciudad de destino
+     */
     private JComboBox<String> destinoComboBox;
+    /**
+     * JDateChooser utilizado para seleccionar la fecha del viaje
+     */
     private JDateChooser fechaChooser;
 
+    /**
+     * Constructor de la clase, genera los ComboBoxes de origen y destino y también el JDateChooser de la fecha, además
+     * guarda estos valores dentro del pasaje.
+     * @param pasaje instancia de Pasaje que se rellena con las variables de este panel
+     */
     public PanelInicio(Pasaje pasaje) {
         super();
         setBounds(920, 40, 380, 530);
@@ -112,6 +129,10 @@ public class PanelInicio extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
+    /** Recibe el click desde PanelPrincipal y repinta el panel
+     * @param x coordenada x del click
+     * @param y coordenada y del click
+     */
     public void handleClick(int x, int y){
         repaint();
     }

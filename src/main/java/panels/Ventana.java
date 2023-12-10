@@ -1,6 +1,10 @@
 package panels;
 import javax.swing.ImageIcon;
 import javax.swing.*;
+
+/**
+ * Clase tipo JFrame, contiene los paneles del proyecto.
+ */
 public class Ventana extends JFrame {
     /** Constructor de Ventana, simplemente crea la ventana e implementa el panel principal, además agrega un ícono */
     public Ventana(){
