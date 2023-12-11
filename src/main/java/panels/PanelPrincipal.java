@@ -54,7 +54,7 @@ public class PanelPrincipal extends JPanel {
         AsientoSaloncama = new PanelAsientosSaloncama(pasaje);
         AsientoSaloncama.setBounds(100,0, 600, 790);
 
-        Datos = new PanelDatos(pasaje, this);
+        Datos = new PanelDatos(pasaje, this, pasajesLista);
         Datos.setBounds(830,0, 600, 750);
 
 
@@ -157,7 +157,7 @@ public class PanelPrincipal extends JPanel {
         // crea de cero los paneles
         inicio = new PanelInicio(pasaje); inicio.setBounds(450,0, 600, 730);
         hora = new PanelHora(pasaje); hora.setBounds(500,50,500,1080);
-        Datos = new PanelDatos(pasaje, this); Datos.setBounds(830,0, 600, 750);
+        Datos = new PanelDatos(pasaje, this, pasajesLista); Datos.setBounds(830,0, 600, 750);
 
         this.add(inicio);
         this.repaint();

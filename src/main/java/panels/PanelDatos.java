@@ -1,5 +1,6 @@
 package panels;
 import org.example.Pasaje;
+import org.example.PasajesLista;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,13 +15,15 @@ public class PanelDatos extends JPanel {
     private JRadioButton noRadioButton;
     private JTextArea areaDatosCompra;
     private int estado;
+    private PasajesLista pasajesLista;
 
-    public PanelDatos(Pasaje pasaje, PanelPrincipal panelPrincipal) {
+    public PanelDatos(Pasaje pasaje, PanelPrincipal panelPrincipal, PasajesLista pasajesLista) {
         super();
         setBounds(920, 40, 380, 530);
         this.setLayout(null);
         this.pasaje = pasaje;
         this.panelPrincipal = panelPrincipal;
+        this.pasajesLista = pasajesLista;
 
         JLabel titulo = new JLabel("Datos Personales", SwingConstants.CENTER);
         titulo.setBounds(120, 50, 380, 30);
@@ -93,8 +96,16 @@ public class PanelDatos extends JPanel {
                     datosCompra.append("Número de asiento: ").append(String.valueOf(pasaje.getNumAsiento())).append("\n");
                     datosCompra.append("Nombre: ").append(nombre).append("\n");
                     datosCompra.append("Pasaje estudiante: ").append(seleccionPasaje).append("\n");
-                    PanelDatos.this.add(comprar);
-                    PanelDatos.this.repaint();
+
+                    if (pasajesLista.pasajeYaComprado(pasaje)) {
+                        datosCompra.append("El pasaje ya ha sido comprado. No está disponible.").append("\n");
+                        JOptionPane.showMessageDialog(null, "El pasaje ya ha sido comprado. No está disponible.", "Pasaje no disponible", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        // Agregar el pasaje a la lista si no ha sido comprado
+                        pasajesLista.addPasaje(pasaje);
+                        PanelDatos.this.add(comprar);
+                        PanelDatos.this.repaint();
+                    }
                 }
                 // Mostrar los datos en el JTextArea
                 areaDatosCompra.setText(datosCompra.toString());
