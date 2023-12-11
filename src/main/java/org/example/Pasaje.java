@@ -90,7 +90,6 @@ public class Pasaje {
                 Objects.equals(hora, pasaje.hora) &&
                 Objects.equals(tipoAsiento, pasaje.tipoAsiento);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(ciudadInicio, ciudadDestino, fecha, hora, tipoAsiento, numAsiento);

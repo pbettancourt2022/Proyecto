@@ -9,20 +9,33 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+/**
+ * Clase principal del proyecto, contiene el resto de los paneles y maneja el movimiento de estos con ayuda de
+ * PanelMovimiento, además maneja los clicks y los envía al resto de paneles.
+ */
 public class PanelPrincipal extends JPanel {
+    /** Instancia de Pasaje, es el que se rellena de datos a lo largo del programa para despues guardarse y ser reiniciado. */
     private Pasaje pasaje;
+    /** Instancia de PasajesLista, guarda los pasajes después de realizar la compra. */
     private PasajesLista pasajesLista;
+    /** Instacia de PanelInicio, la usamos para obtener las ciudades y la fecha del viaje. */
     private PanelInicio inicio;
+    /** Instancia de PanelMovimiento, la usamos para mover los paneles. */
     private PanelMovimiento mov;
+    /** Instancia de PanelHora, la usamos para escoger la hora y el tipo de asiento del viaje. */
     private PanelHora hora;
+    /** Los tres Paneles de asientos funcionan básicamente igual, uno obtiene el numero de asiento de ellos. */
     private PanelAsientosClasic AsientoClasic;
     private PanelAsientosSemicama AsientoSemicama;
     private PanelAsientosSaloncama AsientoSaloncama;
+    /** Instancia de PanelDatos, la usamos para obtener el nombre y tipo de pago del comprador, además con ella se paga. */
     private PanelDatos Datos;
     /**
      * Integer que lleva cuenta de cual panel es el que se está mostrando
      */
     private int quePanel;
+    /** Constructor de PanelPrincipal, maneja las acciones del proyecto. */
     public PanelPrincipal(){
         super();
         this.setBackground(Color.WHITE);
@@ -73,6 +86,7 @@ public class PanelPrincipal extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
     }
+    /** Método que maneja el botón para avanzar de panel en PanelMovimiento */
     public void avanzarPanel(){
         if(quePanel == 1){
             if(pasaje.getCiudadInicio() == null || pasaje.getCiudadDestino() == null || pasaje.getFecha() == null);
@@ -106,8 +120,8 @@ public class PanelPrincipal extends JPanel {
         else;
         revalidate();
         repaint();
-        System.out.println(pasaje.toString());
     }
+    /** Método que maneja el botón para retroceder de panel en PanelMovimiento */
     public void retrocederPanel(){
         System.out.println(quePanel);
         if(quePanel == 3){
@@ -145,6 +159,8 @@ public class PanelPrincipal extends JPanel {
         revalidate();
         repaint();
     }
+    /** Método que maneja la finalización de la compra en PanelDatos, agrega el pasaje a la lista de pasajes, reinicia
+     * el pasaje, y reinicia los paneles que tienen datos guardados, además vuelve al panel inicial*/
     public void finalizarCompra(){
         pasajesLista.addPasaje(pasaje);
         // borra los datos de pasaje, como usamos singleton no podamos reinstanciar como antes

@@ -8,15 +8,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelDatos extends JPanel {
+    /**
+     * Instancia única de Pasaje, la utilizamos para acceder al pasaje y agregarle los datos obtenidos en el panel.
+     */
     private Pasaje pasaje;
+    /** Instancia de PanelPrincipal, la ocupamos para acceder al método para realizar el pago dentro de esa clase. */
     private PanelPrincipal panelPrincipal;
+    /** Instancia de JTextField, la ocupamos para obtener el nombre del comprador. */
     private JTextField campoNombre;
+    /** Instancia de JRadioButton, su uso es marcar si el pago es estudiante. */
     private JRadioButton siRadioButton;
+    /** Análogamente, esta instancia la ocupamos para marcar si el pago es normal. */
     private JRadioButton noRadioButton;
+    /** Instacia de JTextArea, despliega todos los datos del pasaje. */
     private JTextArea areaDatosCompra;
-    private int estado;
+    /** Instancia de PasajesLista, la ocupamos para acceder a la lista de pasajes comprados */
     private PasajesLista pasajesLista;
-
+    /**
+     * Constructor de la clase, agrega los datos del comprador al pasaje y realiza la compra.
+     * @param pasaje pasaje que se rellena con los datos
+     * @param panelPrincipal para poder usar el método de finalizar compra
+     * @param pasajesLista para acceder a la lista de pasajes comprados
+     */
     public PanelDatos(Pasaje pasaje, PanelPrincipal panelPrincipal, PasajesLista pasajesLista) {
         super();
         setBounds(920, 40, 380, 530);
@@ -64,7 +77,7 @@ public class PanelDatos extends JPanel {
 
 
         JButton comprar = new JButton("Comprar");
-        comprar.addActionListener(e -> {panelPrincipal.finalizarCompra(); estado = 0;});
+        comprar.addActionListener(e -> {panelPrincipal.finalizarCompra();});
         comprar.setBounds(25, 700, 150, 30);
 
         confirmarDatosButton.addActionListener(new ActionListener() {
@@ -121,7 +134,10 @@ public class PanelDatos extends JPanel {
         areaDatosCompra.setBounds(25, 370, 330, 150);
         this.add(areaDatosCompra);
     }
-
+    /** Recibe el click desde PanelPrincipal y repinta el panel
+     * @param x coordenada x del click
+     * @param y coordenada y del click
+     */
     public void handleClick(int x, int y) {
         repaint();
     }

@@ -7,7 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelAsientosSaloncama extends JPanel {
+    /**
+     * Instancia única de Pasaje, la utilizamos para acceder al pasaje y agregarle los datos obtenidos en el panel.
+     */
     private Pasaje pasaje;
+
+    /** Constructor de la clase, crea los botones de los asientos y guarda el numero de asiento
+     * @param pasaje pasaje que rellenamos con los datos obtenidos en el panel
+     */
     public PanelAsientosSaloncama(Pasaje pasaje){
         super();
         setBounds(920, 40, 380, 530);
@@ -50,6 +57,10 @@ public class PanelAsientosSaloncama extends JPanel {
         this.add(AsientosIzquierda);
         this.add(AsientosDerecha);
     }
+    /** Recibe el click desde PanelPrincipal y repinta el panel
+     * @param x coordenada x del click
+     * @param y coordenada y del click
+     */
     public void handleClick(int x, int y){
         repaint();
     }

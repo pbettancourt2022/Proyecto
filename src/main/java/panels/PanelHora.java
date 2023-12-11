@@ -19,11 +19,10 @@ public class PanelHora extends JPanel {
      * Instancia única de Pasaje, la utilizamos para acceder al pasaje y agregarle los datos obtenidos en el panel.
      */
     Pasaje pasaje;
-
     /**
      * Constructor de la clase, crea los JLabels con los datos de los buses y sus horas, y también crea los JRadioButtons
      * para seleccionar una hora y tipo de asiento.
-     * @param pasaje
+     * @param pasaje pasaje que rellenamos con los datos obtenidos en el panel
      */
     public PanelHora(Pasaje pasaje){
         super();
