@@ -4,15 +4,45 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Clase que representa el pasaje comprado con todos los datos fundamentales que este debe tener.
+ */
 public class Pasaje {
+    /**
+     * String que representa la ciudad del origen del viaje.
+     */
     String ciudadInicio;
+    /**
+     * String que representa la ciudad a la que se desea ir en el viaje.
+     */
     String ciudadDestino;
+    /**
+     * Variable tipo Date que representa la fecha escogida para el viaje.
+     */
     Date fecha;
+    /**
+     * Variable tipo LocalTime que representa la hora escogida para el viaje.
+     */
     LocalTime hora;
+    /**
+     * String que representa el tipo de asiento escogido por el comprador.
+     */
     String tipoAsiento;
+    /**
+     * Integer que representa el asiento escogido por el comprador.
+     */
     int numAsiento;
+    /**
+     * String que representa el nombre del comprador.
+     */
     String nombre;
+    /**
+     * String que representa si el pago es Normal o Estudiante.
+     */
     String pago;
+    /**
+     * Constructor de la clase, solamente inicializa las variables.
+     */
     public Pasaje(){
     }
     public void setCiudadInicio(String ciudadInicio){this.ciudadInicio = ciudadInicio;}
@@ -41,6 +71,13 @@ public class Pasaje {
                 ", pago = '" + pago + '\'' +
                 '}';
     }
+
+    /**
+     * Método que revisa si dos pasajes son iguales
+     * @param o un pasaje
+     * @return retorna true si el pasaje es igual al que se le está comparando o si todos los elementos dentro del pasaje son iguales
+     * retorna false si es que no son iguales.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -11,11 +11,20 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.time.LocalTime;
 
-
+/**
+ * Clase JPanel que representa la muestra de las horas dentro del programa.
+ */
 public class PanelHora extends JPanel {
+    /**
+     * Instancia única de Pasaje, la utilizamos para acceder al pasaje y agregarle los datos obtenidos en el panel.
+     */
     Pasaje pasaje;
-    String queAsiento;
-    String queHora;
+
+    /**
+     * Constructor de la clase, crea los JLabels con los datos de los buses y sus horas, y también crea los JRadioButtons
+     * para seleccionar una hora y tipo de asiento.
+     * @param pasaje
+     */
     public PanelHora(Pasaje pasaje){
         super();
         setLayout(null);
@@ -153,6 +162,10 @@ public class PanelHora extends JPanel {
         this.add(labels);
 
     }
+    /** Recibe el click desde PanelPrincipal y repinta el panel
+     * @param x coordenada x del click
+     * @param y coordenada y del click
+     */
     public void handleClick(int x, int y){
         repaint();
     }
