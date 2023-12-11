@@ -6,7 +6,7 @@ import panels.Ventana;
  * @author Pablo Bettancourt
  * @author Javier Morales
  *
- * @version 0.97 10 de diciembre 2023
+ * @version 0.99 10 de diciembre 2023
  */
 public class Main {
     public static void main(String[] args) {

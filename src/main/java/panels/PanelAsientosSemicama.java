@@ -11,7 +11,6 @@ public class PanelAsientosSemicama extends JPanel {
      * Instancia única de Pasaje, la utilizamos para acceder al pasaje y agregarle los datos obtenidos en el panel.
      */
     private Pasaje pasaje;
-
     /** Constructor de la clase, crea los botones de los asientos y guarda el numero de asiento
      * @param pasaje pasaje que rellenamos con los datos obtenidos en el panel
      */

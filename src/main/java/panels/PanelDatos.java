@@ -97,7 +97,13 @@ public class PanelDatos extends JPanel {
                 // Construir el texto con la información recopilada
                 StringBuilder datosCompra = new StringBuilder();
                 if(pasaje.getNumAsiento() == 0 || nombre == null || seleccionPasaje == null ){
+                    datosCompra = new StringBuilder();
                     datosCompra.append("Debe completar los datos.");
+                } else if (pasajesLista.pasajeYaComprado(pasaje)) {
+                    pasaje.setNumAsiento(0);
+                    datosCompra = new StringBuilder();
+                    datosCompra.append("El pasaje ya ha sido comprado. No está disponible.").append("\n");
+                    JOptionPane.showMessageDialog(null, "El pasaje ya ha sido comprado. No está disponible.", "Pasaje no disponible", JOptionPane.WARNING_MESSAGE);
                 }
                 else {
                     datosCompra = new StringBuilder();
@@ -110,15 +116,9 @@ public class PanelDatos extends JPanel {
                     datosCompra.append("Nombre: ").append(nombre).append("\n");
                     datosCompra.append("Pasaje estudiante: ").append(seleccionPasaje).append("\n");
 
-                    if (pasajesLista.pasajeYaComprado(pasaje)) {
-                        datosCompra.append("El pasaje ya ha sido comprado. No está disponible.").append("\n");
-                        JOptionPane.showMessageDialog(null, "El pasaje ya ha sido comprado. No está disponible.", "Pasaje no disponible", JOptionPane.WARNING_MESSAGE);
-                    } else {
-                        // Agregar el pasaje a la lista si no ha sido comprado
-                        pasajesLista.addPasaje(pasaje);
-                        PanelDatos.this.add(comprar);
-                        PanelDatos.this.repaint();
-                    }
+                    PanelDatos.this.add(comprar);
+                    PanelDatos.this.repaint();
+
                 }
                 // Mostrar los datos en el JTextArea
                 areaDatosCompra.setText(datosCompra.toString());

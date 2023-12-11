@@ -22,12 +22,11 @@ public class PasajesLista {
     public boolean pasajeYaComprado(Pasaje pasaje) {
         for (Pasaje pasajeExistente : pasajes) {
             if (pasajesIguales(pasaje, pasajeExistente)) {
-                return true; // Si ya existe un pasaje con las mismas propiedades
+                return true;
             }
         }
-        return false; // Si no se encuentra un pasaje con las mismas propiedades
+        return false;
     }
-
     /**
      * Método que revisa si dos pasajes son iguales
      * @param pasajeA pasaje uno a comparar

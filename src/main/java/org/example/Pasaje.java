@@ -90,6 +90,19 @@ public class Pasaje {
                 Objects.equals(hora, pasaje.hora) &&
                 Objects.equals(tipoAsiento, pasaje.tipoAsiento);
     }
+    /** Clona el estado de pasaje */
+    public Pasaje clonar() {
+        Pasaje temp = new Pasaje();
+        temp.ciudadInicio = this.ciudadInicio;
+        temp.ciudadDestino = this.ciudadDestino;
+        temp.fecha = this.fecha;
+        temp.hora = this.hora;
+        temp.tipoAsiento = this.tipoAsiento;
+        temp.numAsiento = this.numAsiento;
+        temp.nombre = this.nombre;
+        temp.pago = this.pago;
+        return temp;
+    }
     @Override
     public int hashCode() {
         return Objects.hash(ciudadInicio, ciudadDestino, fecha, hora, tipoAsiento, numAsiento);

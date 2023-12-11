@@ -162,7 +162,8 @@ public class PanelPrincipal extends JPanel {
     /** Método que maneja la finalización de la compra en PanelDatos, agrega el pasaje a la lista de pasajes, reinicia
      * el pasaje, y reinicia los paneles que tienen datos guardados, además vuelve al panel inicial*/
     public void finalizarCompra(){
-        pasajesLista.addPasaje(pasaje);
+        Pasaje temp = pasaje.clonar();
+        pasajesLista.addPasaje(temp);
         // borra los datos de pasaje, como usamos singleton no podamos reinstanciar como antes
         pasaje.setCiudadInicio(null); pasaje.setCiudadDestino(null); pasaje.setFecha(null); pasaje.setHora(null);
         pasaje.setTipoAsiento(null); pasaje.setNumAsiento(0); pasaje.setPago(null);
